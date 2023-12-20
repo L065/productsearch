@@ -16,11 +16,11 @@
         <hr/>
         <h3>請選擇模型種類</h3>
         <a href="productList.jsp?p1=1" type="button">Classic Cars</a><br>
-        <a href="productList.jsp?p1=2" type="button">Planes</a>
-        <a href="productList.jsp?p1=3" type="button">Motorcycles</a>
-        <a href="productList.jsp?p1=4" type="button">Ships</a>
-        <a href="productList.jsp?p1=5" type="button">Trains</a>
-        <a href="productList.jsp?p1=6" type="button">Trucks and Buses</a>
-        <a href="productList.jsp?p1=7" type="button">Vintage Cars</a>
+        <a href="productList.jsp?p1=2" type="button">Planes</a><br>
+        <a href="productList.jsp?p1=3" type="button">Motorcycles</a><br>
+        <a href="productList.jsp?p1=4" type="button">Ships</a><br>
+        <a href="productList.jsp?p1=5" type="button">Trains</a><br>
+        <a href="productList.jsp?p1=6" type="button">Trucks and Buses</a><br>
+        <a href="productList.jsp?p1=7" type="button">Vintage Cars</a><br>
     </body>
 </html>
