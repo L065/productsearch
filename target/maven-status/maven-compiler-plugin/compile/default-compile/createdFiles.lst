@@ -1,3 +1,4 @@
 com\mycompany\productsearch\resources\JakartaEE91Resource.class
-DBConGenerator02.class
 com\mycompany\productsearch\JakartaRestConfiguration.class
+com\mycompany\productsearch\DBConGenerator02.class
+com\mycompany\productsearch\productClass.class

@@ -14,7 +14,26 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Product List trans to Object (ORM)</title>
-        
+    <style>
+    table, th, td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+    table {
+      border-spacing: 15px;
+    }
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #04AA6D;
+      color: white;
+    }
+    </style>    
     </head>
     <%--  
             1.載入資料庫
@@ -30,6 +49,8 @@
         ResultSet rs = null;
         Statement stmt = null;
         String productLine  = null;
+        String shoppingUrl = "#";
+        ArrayList<productClass> rows = new ArrayList();
     %>
     
     <%       
@@ -54,7 +75,7 @@
     
     <%--   rs.next 迴圈開始 --%> 
         <%
-        ArrayList rows= new ArrayList();
+        ArrayList<productClass> rows= new ArrayList();  //指定ArrayList放入的資料型別<productClass>
             try
                 {
                     while(rs.next())
@@ -77,10 +98,32 @@
         %>
     
     <body>
-            
+        <h2>商品列表</h2>
+        <h4>查詢類型: <%= productLine %></h4>>
+        <table style="width:80%" id="customers">     
+            <tr>
+              <th>產品代號</th>
+              <th>產品名稱</th> 
+              <th>模型比例</th>
+              <th>庫存數量</th>              
+              <th>購物</th>
+            </tr>
+                  
+            <%  for(productClass pm01 : rows ) { %>  
+            <%-- for each迴圈  --%>
+            <tr>                
+                <td><%= pm01.productCode %></td>
+                <td><%= pm01.productName %></td>
+                <td><%= pm01.productScale %></td>
+                <td><%= pm01.qisk %></td>
+              
+              <td><a href="<%= pm01.productCode %>">加入購物車</a> </td>
+            </tr>
+            <% } %>
+        </table>
         
-            <hr>
-            <p>目前共有<%= rows.size() %>筆模型資料</p>    
+        <hr>
+        <p>目前共有<%= rows.size() %>筆模型資料</p>    
          
     </body>
 </html>

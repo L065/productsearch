@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package com.mycompany.productsearch;
 
 import java.sql.*;
 
@@ -12,7 +13,7 @@ import java.sql.*;
 public class DBConGenerator02 {
     String username="root";
     String passwd="12345";
-    String cstring = "jdbc:mariadb://127.0.0.1/webdb";
+    String cstring = "jdbc:mariadb://127.0.0.1/classicmodels";
     
     public DBConGenerator02() {
         try{

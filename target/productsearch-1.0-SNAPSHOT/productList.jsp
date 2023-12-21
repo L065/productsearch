@@ -11,21 +11,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Product List</title>
         <style>
-        table {
-          border-collapse: collapse;
-          border-spacing: 0;
-          width: 100%;
-          border: 1px solid #ddd;
-        }
-        th, td {
-          text-align: left;
-          padding: 16px;
-        }
-        tr:nth-child(even) {
-          background-color: #a9d9bb;
-        }
+            table {
+              border-collapse: collapse;
+              border-spacing: 0;
+              width: 100%;
+              border: 1px solid #ddd;
+            }
+            th, td {
+              text-align: left;
+              padding: 16px;
+            }
+            tr:nth-child(even) {
+              background-color: #a9d9bb;
+            }
         </style>
     </head>
     <%--  
@@ -37,15 +37,15 @@
             6.結束關閉工具
          --%>
          
-    <%!  //宣告方法
+    <%!  //宣告物件
         Connection con = null;  
         ResultSet rs = null;
         Statement stmt = null;
         String productLine = null;
     %>
     
-    <%
-        int plType = Integer.valueOf( request.getParameter("pl") );  // 
+    <%       
+        int pppType = Integer.valueOf( request.getParameter("ppp") );  // 
           // 請注意 跨資料庫查詢時要加上  Database.Table 格式
           //原本在資料庫是字元再轉為數字
         String sql = "Select * from classicmodels.products where productLine = '"; 
@@ -57,7 +57,7 @@
         stmt = con.createStatement();
           //
           
-        switch( plType ) 
+        switch( pppType ) 
         {
             case 1:
                 // 這是 選項一  : Class Cars
@@ -113,25 +113,28 @@
               <th>模型比例</th>
               <th>庫存數量</th>
               <th>售價</th>
+              <th>點選加入購買</th>>
             </tr>
             <%--   rs.next 迴圈開始 --%> 
             <%
             try
                 {
-                    while(re.next())
+                    while(rs.next())
                     {%>
                         <tr>
                             <td><%= rs.getString("productCode") %></td>
                             <td><%= rs.getString("productName") %></td>
                             <td><%= rs.getString("productScale") %></td>
                             <td><%= rs.getInt("quantityInStock") %></td>
-                            <td><%= rs.getBigDecimal("MSRP").toString() //可注意這個DB資料型態  %></td>
+                            <td><%= rs.getBigDecimal("MSRP").toString()%></td>
+                                <%-- // getBigDecimal 可注意這個DB資料型態 --%>
+                            <td><a href="shoppingCart.jsp">加入購物車</a></td>
                         </tr>
                  <%}
                     // 釋放所有資源
-                    stmt.close();
                     rs.close();
-                    con.close(); 
+                    stmt.close();
+                    con.close();
                 }
             catch(Exception e)
             {}    
